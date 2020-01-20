@@ -1,0 +1,503 @@
+<!Doctype HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900|Oswald:400" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Kevin Rutolo</title>
+    <script>
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 200) {
+                $(".main-menu").addClass("main-menu-scroll");
+            } else {
+                $(".main-menu").removeClass("main-menu-scroll");
+            }
+        });
+    </script>
+
+    <!-- CAROUSEL -->
+
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
+    <!-- SCROLL ANIMATION -->
+    <script>
+        $(document).ready(function () {
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+
+                var target = this.hash;
+                var $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 900, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#slider').carouFredSel({
+                width: '100%',
+                align: false,
+                items: 3,
+                items: {
+                    width: $('#wrapper').width() * 0.15,
+                    height: 500,
+                    visible: 1,
+                    minimum: 1
+                },
+                scroll: {
+                    items: 1,
+                    timeoutDuration: 5000,
+                    onBefore: function (data) {
+
+                        //	find current and next slide
+                        var currentSlide = $('.slide.active', this),
+                            nextSlide = data.items.visible,
+                            _width = $('#wrapper').width();
+
+                        //	resize currentslide to small version
+                        currentSlide.stop().animate({
+                            width: _width * 0.15
+                        });
+                        currentSlide.removeClass('active');
+
+                        //	hide current block
+                        data.items.old.add(data.items.visible).find('.slide-block').stop().fadeOut();
+
+                        //	animate clicked slide to large size
+                        nextSlide.addClass('active');
+                        nextSlide.stop().animate({
+                            width: _width * 0.7
+                        });
+                    },
+                    onAfter: function (data) {
+                        //	show active slide block
+                        data.items.visible.last().find('.slide-block').stop().fadeIn();
+                    }
+                },
+                onCreate: function (data) {
+
+                    //	clone images for better sliding and insert them dynamacly in slider
+                    var newitems = $('.slide', this).clone(true),
+                        _width = $('#wrapper').width();
+
+                    $(this).trigger('insertItem', [newitems, newitems.length, false]);
+
+                    //	show images 
+                    $('.slide', this).fadeIn();
+                    $('.slide:first-child', this).addClass('active');
+                    $('.slide', this).width(_width * 0.15);
+
+                    //	enlarge first slide
+                    $('.slide:first-child', this).animate({
+                        width: _width * 0.7
+                    });
+
+                    //	show first title block and hide the rest
+                    $(this).find('.slide-block').hide();
+                    $(this).find('.slide.active .slide-block').stop().fadeIn();
+                }
+            });
+
+            //	Handle click events
+            $('#slider').children().click(function () {
+                $('#slider').trigger('slideTo', [this]);
+            });
+
+            //	Enable code below if you want to support browser resizing
+            $(window).resize(function () {
+
+                var slider = $('#slider'),
+                    _width = $('#wrapper').width();
+
+                //	show images
+                slider.find('.slide').width(_width * 0.15);
+
+                //	enlarge first slide
+                slider.find('.slide.active').width(_width * 0.7);
+
+                //	update item width config
+                slider.trigger('configuration', ['items.width', _width * 0.15]);
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="main-menu">
+        <div class="main-menu-logo">
+            <a href="#home">Kevin Rutolo</a>
+        </div>
+        <div class="main-menu-items">
+            <a href="#kevin">Sobre mí</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#skills">Skills</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </div>
+    <div id="home">
+        <div class="free-poster">
+            <img src="img/free-poster.svg" alt="free poster">
+        </div>
+        <div class="home-img">
+            <img class="home-img-fondo web" src="img/fondo.png" alt="">
+            <img class="home-img-pibe web" src="img/pibe.png" alt="">
+            <img class="home-img-fondo mobile" src="img/fondo-mobile.png" alt="">
+        </div>
+        <div class="home-pie">
+            <p>Now you are working with power</p>
+        </div>
+        <div class="home-text">
+            <h2>Desarrollo de videojuegos</h2>
+            <span>Multiplataform, realidad virtual y aumentada!</span>
+            <h3>Arte 2D & 3D</h3>
+            <p>Edición 2018</p>
+        </div>
+    </div>
+    <div id="kevin">
+        <div class="section-content">
+            <h3 class="section-title">GAME DESIGNER ON THE MAKING</h3>
+            <h4 class="section-subtitle">Tengo como principal objetivo formarme como Game Designer.</h4>
+            <p class="section-text">
+                Estudio para un título de informática mientras leo y realizo cursos por cuenta propia, tanto de game
+                design en sí como de todas las disciplinas que lleva el desarrollo de videojuegos, ya que es necesario
+                un conocimiento lo más amplio posible para esta disciplina.
+            </p>
+            <p class="section-text">
+                Es por esto y por mi amor por multiples ramas de artes que llegué a manejar motores de juegos de misma
+                forma que software de arte 2d y 3d.
+            </p>
+        </div>
+    </div>
+    <div id="portfolio">
+        <div class="portfolio-content">
+            <h3 class="section-title">A MASSIVE CATALOG OF PREVIOUS WORKS TO CHOOSE FROM!
+            </h3>
+            <div class="portfolio-items">
+                <div class="portfolio-item">
+                    <img class="portfolio-item-image" src="img/principales/p1_antimatter.png" alt="anitmatter kid">
+                    <div class="portfolio-item-content">
+                        <h5 class="portfolio-item-title">Antimatter Kid</h5>
+                        <h6 class="portfolio-item-subtitle">Un chico, su juguete y mucha nostalgia.
+                        </h6>
+                        <p class="portfolio-item-text">Un juego nuevo propio, producto de mi pasión por los 90 y los juegos. Realizado en Unreal, apunta a Steam y consolas. Lanzamiento en 2019.
+                        </p>
+                        <p class="sigue-text">Sigue en pág. 2</p>
+                        <a href="amkid.html" class="portfolio-item-button">Seguir leyendo</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img class="portfolio-item-image" src="img/principales/p2_talk.png" alt="coderhouse">
+                    <div class="portfolio-item-content">
+                        <h5 class="portfolio-item-title">Profesor Coderhouse</h5>
+                        <h6 class="portfolio-item-subtitle">Enseñando contenido moderno de forma moderna
+                        </h6>
+                        <p class="portfolio-item-text">Cursos de dos meses intensivos de desarrollo de videojuegos y
+                            manejo de Unity, y workshops de temas varios incluyendo gamification.
+                        </p>
+                        <p class="sigue-text">Sigue en pág. 5</p>
+                        <a href="coderhouse.html" class="portfolio-item-button">Seguir leyendo</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img class="portfolio-item-image" src="img/principales/p3_soccer.jpg" alt="soccer">
+                    <div class="portfolio-item-content">
+                        <h5 class="portfolio-item-title">
+                            '90s Football Stars</h5>
+                        <h6 class="portfolio-item-subtitle">Un juego de fútbol arcade rápido y dinámico
+                        </h6>
+                        <p class="portfolio-item-text">Un juego realizado por Purple Tree, publicado en Steam y
+                            consolas, que vuelve a las raices del género, con su jugabilidad enfocada en velocidad.
+                        </p>
+                        <p class="sigue-text">Sigue en pág. 8</p>
+                        <a href="footballstars.html" class="portfolio-item-button">Seguir leyendo</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img class="portfolio-item-image" src="img/principales/p4_vr.png" alt="vr">
+                    <div class="portfolio-item-content">
+                        <h5 class="portfolio-item-title">
+                            W Tech
+                        </h5>
+                        <h6 class="portfolio-item-subtitle">Varios trabajos de VR y AR para empresas
+                        </h6>
+                        <p class="portfolio-item-text">Proyectos inmersivos en realidad aumentada y virtual para
+                            marketing y demás, utilizando las últimas tecnologías.
+                        </p>
+                        <p class="sigue-text">Sigue en pág. 9</p>
+                        <a href="wtech.html" class="portfolio-item-button">Seguir leyendo</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img class="portfolio-item-image" src="img/principales/p5_ARhouse.jpg" alt="AR House">
+                    <div class="portfolio-item-content">
+                        <h5 class="portfolio-item-title">Sense Arq
+                        </h5>
+                        <h6 class="portfolio-item-subtitle">Tecnologías inmersivas aplicadas a arquitectura
+                        </h6>
+                        <p class="portfolio-item-text">Visualización arquitectónica avanzada, con Oculus Rift, HTC
+                            Vive, leap motion, Hololens y muchos más.
+                        </p>
+                        <p class="sigue-text">Sigue en pág. 12</p>
+                        <a href="sensearq.html" class="portfolio-item-button">Seguir leyendo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-others">
+                <h3 class="section-title">AND MANY MORE...
+                </h3>
+                <div id="wrapper">
+                    <div id="slider">
+
+                        <div class="slide" style="background-image: url(img/tira/tf1.jpg);">
+                            <div class="slide-block">
+                                <h4>Arkit Beerpong
+                                </h4>
+                                <p>Juego para un cliente de beerpong an AR estilo flappy bird.
+                                </p>
+                                <a target="_blank" href="https://itunes.apple.com/us/app/super-beer-pong/id1344328425?ls=1&mt=8" class="slide-link">Más info</a>
+                            </div>
+                        </div>
+
+                        <div class="slide" style="background-image: url(img/tira/tf2.jpg);">
+                            <div class="slide-block">
+                                <h4>Maniac Pitch
+                                </h4>
+                                <p>Trabaje como lead programmer en un departamento de audio para juegos.
+                                </p>
+                                <a target="_blank" href="maniacpitch.com" class="slide-link">Más info</a>
+                            </div>
+                        </div>
+
+                        <div class="slide" style="background-image: url(img/tira/tf3.jpg);">
+                            <div class="slide-block">
+                                <h4>Arauco saga
+                                </h4>
+                                <p>Codigos realizados en modalidad freelance para funcionalidades varias.</p>
+                                <a target="_blank" href="https://www.youtube.com/watch?v=E1oLLIclFmM" class="slide-link">Más info</a>
+                            </div>
+                        </div>
+
+                        <div class="slide" style="background-image: url(img/tira/tf4.jpg);">
+                            <div class="slide-block">
+                                <h4>Lujanaut
+                                </h4>
+                                <p>Primer juego realizado y publicado en play store integramente por mi.
+                                </p>
+                                <a target="_blank" href="https://play.google.com/store/apps/details?id=air.lujanautdemo" class="slide-link">Más info</a>
+                            </div>
+                        </div>
+
+                        <div class="slide" style="background-image: url(img/tira/tf5.jpg);">
+                            <div class="slide-block">
+                                <h4>Premio Arcitec arte tecnologico
+                                </h4>
+                                <p>2do puesto en el premio anual, por una obra de hiperrealidad (realidad virtual con
+                                    elementos fisicos reales).
+                                </p>
+                                <a target="_blank" href="https://www.frba.utn.edu.ar/hasta-el-20-de-mayo-se-exponen-las-obras-ganadoras-de-arcitec-2017/" class="slide-link">Más info</a>
+                            </div>
+                        </div>
+
+                        <div class="slide" style="background-image: url(img/tira/tf6.jpg);">
+                            <div class="slide-block">
+                                <h4>1er puesto Game Jam
+                                </h4>
+                                <p>#Traveller obtuvo el primer puesto en el evento organizado por la escuela DaVinci en
+                                    el 2018.
+                                </p>
+                                <a target="_blank" href="https://doublethoughts.itch.io/traveller" class="slide-link">Más info</a>
+                            </div>
+                        </div>
+
+                        <div class="slide" style="background-image: url(img/tira/tf7.jpg);">
+                            <div class="slide-block">
+                                <h4>Guia Palomar
+
+                                </h4>
+                                <p>Una app para una revista local de negocios y contactos
+                                </p>
+                                <a target="_blank" href="https://www.guiapalomar.com/" class="slide-link">Más info</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="skills">
+        <div class="section-content">
+            <h3 class="section-title">Skills</h3>
+            <p class="section-subtitle">Algunas herramientas</p>
+            <div class="skills-content">
+                <div class="skill">
+                    <div class="skill-name">Unity</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width:90%;"></div>
+                    </div>
+                    <div class="skill-percentage">90%</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Unreal</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width:80%;"></div>
+                    </div>
+                    <div class="skill-percentage">80%</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Zbrush</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width:75%;"></div>
+                    </div>
+                    <div class="skill-percentage">75%</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">Illustrator</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width:85%;"></div>
+                    </div>
+                    <div class="skill-percentage">85%</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">3ds max</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width:80%;"></div>
+                    </div>
+                    <div class="skill-percentage">80%</div>
+                </div>
+                <div class="skill">
+                    <div class="skill-name">C#</div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" style="width:85%;"></div>
+                    </div>
+                    <div class="skill-percentage">85%</div>
+                </div>
+            </div>
+            <!-- <div class="skill-aprender">
+                    <p>FLEXIBILIDAD PARA APRENDER NUEVAS HERRAMIENTAS</p>
+                </div> -->
+        </div>
+    </div>
+    <script>
+        var $window = $(window);
+        var $elem = $(".skill-bar")
+
+        function isScrolledIntoView($elem, $window) {
+            var docViewTop = $window.scrollTop();
+            var docViewBottom = docViewTop + $window.height();
+
+            var elemTop = $elem.offset().top;
+            var elemBottom = elemTop + $elem.height();
+
+            return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+        }
+        $(document).on("scroll", function () {
+            if (isScrolledIntoView($elem, $window)) {
+                $elem.addClass("animate")
+            }
+        });
+    </script>
+    <div id="experiencia">
+        <div class="section-content">
+            <div class="section-title">Experiencia laboral</div>
+            <p class="section-subtitle">No incluye trabajo freelance</p>
+            <div class="experiencia-content">
+                <div class="item-right">
+                    <div class="circle"></div>
+                    <div class="experiencia-item-text">
+                        <h3>2018</h3>
+                        <h2>Coderhouse</h2>
+                        <p><b>Profesor de desarrollo de Videojuegos</b><br>
+                            Creé el contenido de un curso de desarrollo de videojuegos para Coderhouse, donde voy a dar
+                            clases sobre el tema, enseñando sobre el uso de la herramienta y las diferentes caras del
+                            proceso de desarrollo en la industria.
+                        </p>
+                    </div>
+                </div>
+                <div class="item-left">
+                    <div class="circle"></div>
+                    <div class="experiencia-item-text">
+                        <h3>2018</h3>
+                        <h2>'90S FOOTBALL STARS</h2>
+                        <p><b>Profesor de desarrollo de Videojuegos</b><br>
+                            Entré en Purple tree para trabajar en su último juego multiplataforma, una experiencia de
+                            futbol muy Arcade, como los juegos retro que se jugaban en la decada noventosa en la que
+                            tambien se ambienta estéticamente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="item-right">
+                    <div class="circle"></div>
+                    <div class="experiencia-item-text">
+                        <h3>2017 - 2018</h3>
+                        <h2>W TECHNOLOGIES</h2>
+                        <p><b>Team leader / Programmer</b><br>
+                            Me encargué de un equipo de programadores y modeladores 3d que creaban experiencias de
+                            realidad aumentada y virtual para campañas de marketing y publidad, con varios proyectos de
+                            aplicaciones de advergaming.
+                        </p>
+                    </div>
+                </div>
+                <div class="item-left">
+                    <div class="circle"></div>
+                    <div class="experiencia-item-text">
+                        <h3>2016 - 2017</h3>
+                        <h2>MANIAC PITCH</h2>
+                        <p><b>Level Designer</b><br>
+                            Sense Arq (abajo) abrió un departamento nuevo con el objetivo de ofrecer servicios de
+                            sonorización para videojuegos, usando wwise y varios motores de videojuegos.
+                        </p>
+                    </div>
+                </div>
+                <div class="item-right">
+                    <div class="circle"></div>
+                    <div class="experiencia-item-text">
+                        <h3>2016 - 2017</h3>
+                        <h2>SENSE ARQ</h2>
+                        <p><b>Programmer</b><br>
+                            Mi primer paso utilizando Unity dia a dia, en este caso en aplicaciones de realidad virtual
+                            y aumentada para proyectos arquitectonicos principalmente, pero tambien incluyendo
+                            proyectos como un simulador de vuelo con Unreal.
+                        </p>
+                    </div>
+                </div>
+                <div class="item-left">
+                    <div class="circle"></div>
+                    <div class="experiencia-item-text">
+                        <h3>2015</h3>
+                        <h2>GUIA PALOMAR</h2>
+                        <p><b>Programmer</b><br>
+                            En mi primer trabajo fijo desarrolle una aplicación movil en android para una revista de
+                            locales barrial.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contacto">
+        <a target="_blank" href="cv_kevinrutolo.pdf" class="descarga-cv">
+            <img src="img/etiqueta.png" alt="tag">
+            <h3>DESCARGAR CV</h3>
+        </a>
+        <div class="contact-content">
+            <a href="mailto:rutolokevin@gmail.com">rutolokevin@gmail.com</a>
+            <a href="tel:+5491160524477">+54 9 11 6052-4477</a>
+            <h1>Kevin Rutolo</h1>
+        </div>
+    </div>
+</body>
+
+</html>

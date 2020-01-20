@@ -1,0 +1,973 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+}
+
+@media screen and (max-width: 1600px){
+    body{
+        font-size: 16px;
+    }
+}
+
+.main-menu{
+    background-color: #cc0000;
+    padding: 1em 2em;
+    box-sizing: border-box;
+    width: 90%;
+    position: fixed;
+    margin-left: 5%;
+    border-radius: 20em;
+    top: 1em;
+    transition: 0.1s;
+    z-index: 9;
+}
+.main-menu-logo{
+    position: relative;
+    float: left;
+}
+.main-menu-logo a{
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+.main-menu-items{
+    float: right;
+}
+.main-menu-items a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    margin: 0 0 0 2em;
+    opacity: 0.9;
+}
+
+.main-menu a:hover{
+    opacity: 1;
+}
+
+.main-menu-scroll{
+    top: 0;
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
+    padding: 1.5em 5%;
+    transition: 0.1s;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3)
+}
+
+#home{
+    background-image: url(img/paper-blue.jpg);
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    opacity: 1;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.free-poster{
+    position: absolute;
+    right: 5%;
+    top: 10em;
+    width: 12em;
+}
+
+.home-img{    
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    transform: scale(0.8);
+}
+
+.home-img-fondo{    
+    position: absolute;
+    bottom: 0;
+    right: -20em;
+    width: 120em;
+}
+.home-img-pibe{    
+    position: relative;
+    width: 18em;
+    margin-right: 28em;
+    margin-bottom: 12em;
+    transform: scale(0.7);
+    animation: jump 1s 0.5s forwards;
+}
+
+@keyframes jump {
+    from {
+        margin-right: 28em;
+        margin-bottom: 12em;
+        transform: scale(0.7);
+    }
+    to {
+        margin-right: 15em;
+        margin-bottom: 18em;
+        transform: scale(1);
+    }
+}
+
+.home-pie{
+    position: absolute;
+    background-color: #cc0000;
+    padding: 0.5em 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 3;
+}
+
+.home-pie p{
+    width: 100%;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: white; 
+    margin: 0;
+}
+
+.home-text{
+    position: absolute;
+    width: 23em;
+    top: 25%;
+    left: 5%;
+}
+
+.home-text h2{
+    font-family: 'Montserrat', sans-serif;
+    color: #cc0000;
+    font-size: 3em;
+    font-weight: 900;
+    /* line-height: 3em; */
+    margin: 0;
+    border-top: 0.5rem solid #cc0000;
+    padding: 1.5rem 0 1rem;
+}
+
+.home-text span{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+}
+
+.home-text h3{
+    font-family: 'Montserrat', sans-serif;
+    color: #FFD900;
+    font-size: 2.5em;
+    font-weight: 900;
+    line-height: 2em;
+    padding: 1.5rem 0;
+    border-bottom: 0.5rem solid #cc0000;
+    border-top: 0.5rem solid #cc0000;
+    margin: 0;
+    margin-top: 1.5rem;
+}
+
+.home-text p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: white;
+    font-weight: 300;
+}
+
+#kevin{
+    background-image: url(img/paper.jpeg);
+    width: 100%;
+}
+
+.section-content{
+    width: 50%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10em 0 2em;
+
+}
+.section-title{
+    font-family: 'Montserrat', sans-serif;
+    color: #cc0000;
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+.section-subtitle{
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    margin: 2em 0;
+}
+.section-text{
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    text-align: center;
+    margin: 1em auto;
+    font-weight: 300;
+
+}
+
+#portfolio{
+    background-image: url(img/paper.jpeg);
+    width: 100%;
+    position: relative;
+    float: left;
+}
+.portfolio-content{
+    padding-top: 10em;
+} 
+.portfolio-content .section-title{
+    width: 50%;
+    margin: 0 auto 0;
+}
+.portfolio-items{
+    margin-top: 3em;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.portfolio-item{
+    position: relative;
+    float: left;
+    width: 90%;
+    margin: 2em 0 2em 5%;
+}
+.portfolio-item-image{
+    position: relative;
+    float: left;
+    width: 30em;
+    margin-right: 5%;
+    height: auto;
+}
+
+.portfolio-item-content{    
+    position: relative;
+    float: left;
+    width: calc(95% - 30em);
+    font-family: 'Montserrat', sans-serif;
+    padding: 1em 0;
+}
+
+.portfolio-item-title{
+    font-size: 1.5em;
+    color: #cc0000;
+    margin: 0;
+}
+.portfolio-item-subtitle{
+    font-size: 1em;
+    color: black;
+    margin: 0.5em 0 1.5em;
+}
+
+.portfolio-item-text{
+    font-weight: 300;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.portfolio-item-button{
+    color: #cc0000;
+    border: 0.3em solid #cc0000;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 5em;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin-top: 2em;
+    position: relative;
+    float: right;
+}
+
+.sigue-text{
+    position: relative;
+    float: left;
+    font-style: italic;
+    font-size: 0.8em;
+
+}
+/* slider */
+
+
+
+#wrapper {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding-top: 1px;
+}
+#slider {
+    margin: 100px 0 0 0;
+    height: 55vh !important;
+    width: 1400px;
+    overflow: hidden;
+    background: url(img/ajax-loader.gif) center center no-repeat;
+}
+
+#slider .slide {
+    position: relative;
+    display: none;
+    height: 55vh;
+    float: left;
+    background-position: center;
+    cursor: pointer;
+    border-left: 1px solid #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#slider .slide:first-child {
+    border: none;
+}
+
+#slider .slide.active {
+    cursor: default;
+}
+
+#slider .slide-block {
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    display: inline-block;
+    width: 80%;
+    font-size: 1em;
+    color: white;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#slider .slide-block h4 {
+    font-size: 2em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    color: #FFD900;
+    line-height: 1;
+}
+#slider .slide-block p {
+    margin: 0;
+}
+
+.caroufredsel_wrapper{
+    width: 100% !important;
+    height: 55vh !important;
+    margin: 1em 0 0 0 !important;
+}
+.slide-link{
+    position: relative;
+    float: left;
+    color: #FFD900;
+    margin-top: 0.5rem;
+}
+
+.portfolio-others{
+    width: 100%;
+    position: relative;
+    float: left;
+    padding: 0 5%;
+    box-sizing: border-box;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+
+#contacto{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 0;
+    background-color: #cc0000;
+}
+
+.descarga-cv{
+    position: absolute;
+    width: 8em;
+    left: calc(50% - 4em);
+    transform: rotate(-12deg);
+    margin-top: -2em;
+}
+
+.descarga-cv img{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.descarga-cv h3{
+    position: absolute;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    color: #cc0000;
+    font-size: 1em;
+    margin: 1.7em 0 0 1em;
+}
+
+.contact-content{
+    width: 100%;
+    position: relative; 
+    float: left;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 1em;
+    margin-top: 4em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+.contact-content a{    
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    position: relative;
+    float: left;
+    margin: 0.5rem 0;
+}
+.contact-content h1{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+
+
+#skills{
+    background-image: url(img/paper.jpeg);
+    width: 100%;
+    position: relative;
+    float: left;
+    margin: 0;
+}
+
+.skills-content{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin: 0.5em 0;
+}
+
+.skill{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.skill .animate{
+    animation: growbar 1s forwards;
+}
+
+@keyframes growbar{
+    from{
+        max-width: 0%;
+    }
+    to{
+        max-width: 100%;
+    }
+}
+
+.skill-name{
+    color: black;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    text-align: right;
+    position: relative;
+    float: left;
+    width: 7em;
+}
+
+.skill-percentage{
+    color: #cc0000;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    text-align: left;
+    position: relative;
+    float: left;
+}
+
+.skill-bar-container{
+    position: relative;
+    float: left;
+    margin: 0.4em 1em;
+    width: calc(100% - 13em);
+}
+
+.skill-bar{
+    position: relative;
+    float: left;
+    height: 1em;
+    border-radius: 1em;
+    background-color: #cc0000;
+    margin-top: 0.1em;
+}
+
+#experiencia{
+    background-image: url(img/paper.jpeg);
+    width: 100%;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding-bottom: 4em;
+}
+
+#experiencia .section-content{
+    width: 80%;
+} 
+.experiencia-content{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.experiencia-content .item-right{
+    position: relative;
+    float: left;
+    margin-left: calc(50% - 0.2em);
+    width: 50%;
+    box-sizing: border-box;
+    border-left: 0.2em solid #cc0000;
+    padding: 1em 2em;
+}
+
+.experiencia-content .item-right .circle{
+    position: absolute;
+    left: -0.6em;
+    top: 0;
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    background-color: #cc0000;
+}
+
+
+.experiencia-content .item-left{
+    position: relative;
+    float: left;
+    margin-right: 50%;
+    width: 50%;
+    box-sizing: border-box;
+    border-right: 0.2em solid #cc0000;
+    padding: 1em 2em;
+}
+
+.experiencia-content .item-left .circle{
+    position: absolute;
+    right: -0.6em;
+    top: 0;
+    width: 1em;
+    height: 1em;
+    border-radius: 1em;
+    background-color: #cc0000;
+}
+
+.experiencia-item-text h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: black;
+    margin-top: 0;
+}
+
+
+.experiencia-item-text p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+.experiencia-item-text h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: #cc0000;
+    margin-bottom: 0.5em;
+}
+
+.mobile{
+    display: none;
+}
+
+@media screen and (max-width: 1024px){
+    .home-img{    
+        position: absolute;
+        bottom: -10%;
+        right: -5em;
+        transform: scale(0.7);
+    }
+    .section-content{
+        width: 90%;
+        margin-left: 5%;
+    }
+    .portfolio-content{
+        width: 90%;
+        margin-left: 5%;
+    }
+    .skills-content{
+        margin-left: 0;
+    }
+    .portfolio-content .section-title{
+        width: 100%;
+    }
+    .portfolio-item-image{
+        width: 50%;
+        margin-left: 25%;
+    }
+    
+    .portfolio-item-content{
+        width: 100%;
+        margin-right: 0;
+        text-align: center;
+    }
+    .portfolio-item-button{
+        width: 9em;
+        margin-right: calc(50% - 6em);    
+    }
+    .sigue-text{
+        float: none;
+        margin-bottom: 0;
+    }
+}
+
+
+@media screen and (max-width: 789px){
+    html, body{
+        font-size: 14px;
+    }
+    .main-menu-items{
+        display: none;
+    }
+
+
+    .main-menu-logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .experiencia-content .item-left, .experiencia-content .item-right{
+        position: relative;
+        float: left;
+        margin-left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        border-left: 0.2em solid #cc0000;
+        padding: 1em 2em;
+        border-right: 0;
+    }
+
+    .experiencia-content .item-left .circle, .experiencia-content .item-right .circle{
+        position: absolute;
+        left: -0.6em;
+        top: 0;
+        width: 1em;
+        height: 1em;
+        border-radius: 1em;
+        background-color: #cc0000;
+    }
+
+    .home-text{
+        top: 8em;
+    }
+    .home-img{    
+        position: absolute;
+        bottom: -10%;
+        right: -5em;
+        transform: scale(0.7);
+    }
+    .portfolio-item-image {
+        width: 100%;
+        margin: 0;
+    }
+    .juego-skills{
+        display: none;
+    }
+    
+
+}
+
+@media screen and (max-width: 599px){
+    .mobile{
+        display: block;
+    }
+
+    .web{
+        display: none;
+    }
+    .home-img{    
+        position: absolute;
+        bottom: 0;
+        right: -5em;
+        transform: scale(0.5);
+    }
+    .free-poster{
+        display: none;
+    }
+
+    .home-text{
+        width: 90%;
+    }
+
+    .home-text h2{
+        font-size: 2em;
+        line-height: 2em;
+    }
+
+    .home-text h3{
+        font-size: 1.5em;
+    }
+
+}
+
+
+/* Pagina juegos */
+
+.back-button{    
+    background-color: #cc0000;
+    transform: rotate(-44deg);
+    position: absolute;
+    left: -6em;
+    top: -2em;
+    z-index: 2;
+}
+
+.back-text{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    padding: 5em 7em 2.3em;
+    position: relative;
+    float: left;
+    margin: 0;
+}
+
+.juego-body{
+    background-image: url(img/paper.jpeg);
+    width: 100%;
+}
+
+.folded-corner img{
+    position: relative;
+    float: left;
+    width: 12em;
+    z-index: 2;
+    margin-top: -0.5rem;
+}
+
+
+.juego-main-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+}
+
+.juego-main-img img{
+    position: relative;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    min-height: 100%;
+}
+
+.juego-skills{
+    position: absolute;
+    right: 5%;
+    z-index: 3;
+    background: #cc0000;
+    padding: 1rem;
+    border-radius: 1rem;
+    top: 5vh;
+    color: white;
+    font-family: montserrat, sans-serif;
+    font-size: 0.6rem;
+    width: 10rem;
+}
+.juego-skills h3{
+    border-bottom: 1px solid white;
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-top: 0;
+}
+
+.juego-skill{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.juego-skill h4{
+    margin-bottom: 0.2rem;
+}
+
+.juego-skill-bar-container{
+    position: relative;
+    float: left;
+    width: calc(100% - 2rem);
+    border-radius: 1rem;
+    height: 0.5rem;
+}
+
+.juego-skill-bar{
+    position: relative;
+    float: left;
+    background: white;
+    border-radius: 1rem;
+    height: 0.5rem;
+}
+
+.juego-skill-container{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.juego-skill-container h5{
+    position: relative;
+    float: right;
+    margin: -0.2rem 0 0;
+}
+
+.juego-title{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    position: absolute;
+    left: 5%;
+    margin: 0;
+    font-size: 1.5rem;
+    bottom: 2rem;
+}
+
+
+.juego-subtitle{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    position: absolute;
+    left: 5%;
+    margin: 0;
+    font-size: 0.8rem;
+    bottom: 1rem;
+}
+
+.juego-platform{
+    position: relative;
+    float: left;
+    margin-top: 42vh;
+    margin-left: -135px; 
+    font-family: 'Montserrat', sans-serif;
+    color: #cc0000;
+    font-weight: bold;
+}
+.juego-release{
+    position: relative;
+    float: right;
+    margin-top: 42vh;
+    margin-right: 5%;
+    font-family: 'Montserrat', sans-serif;
+    color: #cc0000;
+    font-weight: bold;
+}
+
+.juego-content{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.juego-text{
+    position: relative;
+    float: left;
+    width: 40%;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 5%;
+    font-size: 0.9em;
+}
+.juego-text a{
+    font-weight: bold;
+    color: #cc0000;
+    text-decoration: none;
+}
+.juego-text-developer{
+    font-weight: 400;
+    font-style: italic;
+}
+.juego-text img{
+    float: left;
+}
+
+.juego-text span{
+    float: left;
+    margin: 12px;
+}
+
+.juego-video{
+    position: relative;
+    float: right;
+    width: 45%;
+    margin-right: 5%;
+}
+.juego-video img{
+    position: relative;
+    float: left;
+    width: 100%;
+}
+#juego-contacto{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 2rem;
+    background-color: #cc0000;
+}
+.juego-contact-content{
+    width: 100%;
+    position: relative; 
+    float: left;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 1em;
+    margin: 2em 0;
+    text-align: center;
+}
+.juego-contact-content a{    
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    position: relative;
+    float: left;
+    margin: 0.5rem 0;
+}
+.juego-contact-content h1{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width:900px){
+    .juego-text{
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 1rem;
+    }
+    .juego-video{    
+        width: 80%;
+        margin-top: 2rem;
+        margin-right: 10%;
+    }
+}
+
+.secondary-image{
+    display: none;
+}
